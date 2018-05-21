@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Affdex;
+//using Affdex;
 
-public class PlayerEmotions : ImageResultsListener
+public class PlayerEmotions //: ImageResultsListener
 {
 
     public float currentAnger;
@@ -18,7 +18,7 @@ public class PlayerEmotions : ImageResultsListener
 
     bool face;
     public GUIStyle BoxTexture;
-
+	/*
     public override void onFaceFound(float timestamp, int faceId)
     {
         face = true;
@@ -53,6 +53,7 @@ public class PlayerEmotions : ImageResultsListener
             faces[0].Expressions.TryGetValue(Expressions.ChinRaise, out currentChinRaise);
         }
     }
+    */
 
     void OnGUI()
     {
