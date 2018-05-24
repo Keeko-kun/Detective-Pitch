@@ -40,6 +40,16 @@ public class TextGenerator : MonoBehaviour {
         return sentence;
     }
 
+	public List<string> GenerateMultiple(int number)
+	{
+		List<string> sentences = new List<string> ();
+		for (int i = 0; i < number; i++)
+		{
+			sentences.Add (Generate());
+		}
+		return sentences;
+	}
+
     ////Functions to be implemented:
     //Make/generate an instant of the text class
     //Generate an instant of the sentence class
