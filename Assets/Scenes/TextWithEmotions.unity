@@ -246,7 +246,10 @@ MonoBehaviour:
   eb: {fileID: 13122894}
   tg: {fileID: 13122893}
   sentence: {fileID: 123993379}
+  roundText: {fileID: 1900531152}
   speakNow: {fileID: 422702738}
+  totalRounds: 5
+  sentencePerRound: 1
 --- !u!114 &13122893
 MonoBehaviour:
   m_ObjectHideFlags: 0
