@@ -7,10 +7,16 @@ public class Round : MonoBehaviour {
 	public List<string> sentences;
 	public EmotionBinder eb;
 	public TextGenerator tg;
+	public UnityEngine.UI.Text sentence;
+	public UnityEngine.UI.Text roundText;
+	public GameObject speakNow;
+	public int totalRounds;
+	public int sentencePerRound;
 	private string currentSentence;
 	private bool newSentence = false;
 	private float timer = 1f;
 	private int counter;
+	private int round;
 
     private bool ended = false;
     private string ScoreScreen = "";
@@ -19,6 +25,7 @@ public class Round : MonoBehaviour {
 	void Start () {
         ended = false;
 		counter = 0;
+		round = 0;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +36,7 @@ public class Round : MonoBehaviour {
                 EndGame();
 
 			newSentence = !newSentence;
+			speakNow.SetActive(!speakNow.activeSelf);
 			if (counter == sentences.Count)
 			{
 				counter = 0;
@@ -37,17 +45,25 @@ public class Round : MonoBehaviour {
 			if (newSentence)
 			{
 				eb.ChangeTarget();
-			}
-			else
-			{
 				currentSentence = sentences[counter];
+				sentence.text = currentSentence;
 				counter++;
 			}
 		}
 	}
 
 	public void NewRound(){
-		sentences = tg.GenerateMultiple(5);
+		
+		if (round == totalRounds)
+		{
+			SceneManager.LoadScene (2);
+		}
+		else
+		{
+			round++;
+			sentences = tg.GenerateMultiple(sentencePerRound);
+			roundText.text = "Round: " + round;
+		}
 	}
 		
     public void EndGame() {
