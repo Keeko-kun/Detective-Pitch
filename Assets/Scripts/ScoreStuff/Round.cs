@@ -17,6 +17,7 @@ public class Round : MonoBehaviour {
 	private float timer = 1f;
 	private int counter;
 	private int round;
+    private ScoreManager scores;
 
     private bool ended = false;
     private string ScoreScreen = "";
@@ -26,6 +27,8 @@ public class Round : MonoBehaviour {
         ended = false;
 		counter = 0;
 		round = 0;
+        PlayerPrefs.SetInt("rounds", totalRounds * sentencePerRound);
+        scores = GetComponent<ScoreManager>();
 	}
 	
 	// Update is called once per frame
@@ -44,16 +47,25 @@ public class Round : MonoBehaviour {
 			}
 			if (newSentence)
 			{
-				eb.ChangeTarget();
+                scores.StartScore();
+                eb.ChangeTarget();
 				currentSentence = sentences[counter];
 				sentence.text = currentSentence;
 				counter++;
+
 			}
+            else
+            {
+                Debug.Log("hier");
+                scores.StopScore();
+            }
 		}
 	}
 
 	public void NewRound(){
-		
+
+        scores.SaveScore();
+
 		if (round == totalRounds)
 		{
 			SceneManager.LoadScene (2);
