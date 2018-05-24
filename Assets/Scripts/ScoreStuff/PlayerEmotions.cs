@@ -27,21 +27,18 @@ public class PlayerEmotions : ImageResultsListener
         {
             Emotion = Emotions.Joy;
         }
-        else if (browFurrow >= 90)
-        {
-            Emotion = Emotions.Anger;
-        }
         else if (disgust >= 40)
         {
             Emotion = Emotions.Disgust;
+        }
+        else if (browFurrow >= 90)
+        {
+            Emotion = Emotions.Anger;
         }
         else
         {
             Emotion = null;
         }
-
-        Debug.Log(Emotion);
-        Debug.Log(disgust);
     }
 
     public override void onFaceFound(float timestamp, int faceId)
