@@ -21,29 +21,50 @@ public class ScoreManager : MonoBehaviour
     private int ticks;
     private int points;
 
+    private bool running;
+
     public float Score { get; set; }
+
+    public float TotalScore { get; set; }
 
     // Use this for initialization
     void Start()
     {
         targetEmotion = Emotions.Joy; //Standard Joy, remove this
         emotions = GetComponent<PlayerEmotions>();
-        StartCoroutine(EmotionTimer());
         img.sprite = neutral;
+        TotalScore = 0;
     }
 
-    IEnumerator EmotionTimer()
+    public void StartScore()
+    {
+        running = true;
+        StartCoroutine(EmotionTimer());
+    }
+
+    public void StopScore()
+    {
+        running = false;
+    }
+
+    public IEnumerator EmotionTimer()
     {
         ticks = 0;
         points = 0;
 
-        while (true)
+        while (running)
         {
             ticks++;
             UpdateEmotion();
             CompareEmotion();
             yield return new WaitForSecondsRealtime(.15f);
         }
+    }
+
+    public void SaveScore()
+    {
+        TotalScore += Score;
+        PlayerPrefs.SetFloat("score", TotalScore);
     }
 
     private void CompareEmotion()

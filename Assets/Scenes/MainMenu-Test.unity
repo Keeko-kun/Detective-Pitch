@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc93603bf2a35a4cb02d3ef7d94ed2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingGame: GameScreen
+  StartingGame: TextWithEmotions
   buttonOffset: 20
   radioButton: {fileID: 939558511}
   radioGroup: {fileID: 835893731}
