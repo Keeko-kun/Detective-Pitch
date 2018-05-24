@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Round : MonoBehaviour {
 	public List<string> sentences;
@@ -11,8 +12,12 @@ public class Round : MonoBehaviour {
 	private float timer = 1f;
 	private int counter;
 
+    private bool ended = false;
+    private string ScoreScreen = "";
+
 	// Use this for initialization
 	void Start () {
+        ended = false;
 		counter = 0;
 	}
 	
@@ -20,6 +25,9 @@ public class Round : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space))
 		{
+            if (counter > sentences.Count && ended)
+                EndGame();
+
 			newSentence = !newSentence;
 			if (counter == sentences.Count)
 			{
@@ -42,5 +50,8 @@ public class Round : MonoBehaviour {
 		sentences = tg.GenerateMultiple(5);
 	}
 		
-
+    public void EndGame() {
+        ended = true;
+        SceneManager.LoadScene(ScoreScreen);
+    }
 }
