@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 1182297083}
   - component: {fileID: 1182297082}
   - component: {fileID: 1182297081}
+  - component: {fileID: 1182297084}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -913,12 +914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed662c1cdc725f49bf98c4faa9a8073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAnger: 0
-  currentJoy: 0
-  currentSadness: 0
-  currentBrowFurrow: 0
-  chinRaise: 0
-  lipPress: 0
 --- !u!114 &1182297082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,6 +944,22 @@ MonoBehaviour:
   discrete: 0
   emotions: -1
   expressions: -1
+--- !u!114 &1182297084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182297076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c38422050443849bc8da981811f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 1427965939}
+  neutral: {fileID: 21300000, guid: 3f63716487cdd7648a7d186823d9dffb, type: 3}
+  joy: {fileID: 21300000, guid: 2c67e17ee3071764dbd82f921a8be125, type: 3}
+  anger: {fileID: 21300000, guid: a3995425cadd2954c94511d877ad6d27, type: 3}
+  disgust: {fileID: 21300000, guid: 28582653035a0a84a86efbf6dfb1bea4, type: 3}
 --- !u!1 &1241948241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1258,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f04508c83cd737445ba1f01acb331263, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28582653035a0a84a86efbf6dfb1bea4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
