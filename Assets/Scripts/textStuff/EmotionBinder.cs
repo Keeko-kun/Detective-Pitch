@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Affdex;
 
 public class EmotionBinder : MonoBehaviour {
 
 	public List<ImageEnum> images;
-	private Image target;
-	public EmotionEnum emotion;
+	public Image target;
+	private Emotions emotion;
+	private ScoreManager scoreManager;
 
 	// Use this for initialization
 	void Start () {
-			
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		//wie arr koel
+		scoreManager = this.GetComponent<ScoreManager> ();
 	}
 
 	public void ChangeTarget()
@@ -24,11 +21,19 @@ public class EmotionBinder : MonoBehaviour {
 		ImageEnum imageEnum = images [Random.Range (0, images.Count)];
 		target.sprite = imageEnum.image;
 		this.emotion = imageEnum.emotion;
+		scoreManager.SetTarget (this.emotion);
 	}
 }
 
-public struct ImageEnum
+[System.Serializable]
+public class ImageEnum
 {
 	public Sprite image;
-	public EmotionEnum emotion;
+	public Emotions emotion;
+
+	public ImageEnum(Sprite image, Emotions emotion)
+	{
+		this.image = image;
+		this.emotion = emotion;
+	}
 }

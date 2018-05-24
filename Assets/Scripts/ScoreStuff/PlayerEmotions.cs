@@ -16,7 +16,7 @@ public class PlayerEmotions : ImageResultsListener
 
     private bool face;
 
-    public Emotions? Emotion { get; set; }
+    public Emotions Emotion { get; set; }
 
     private void Update()
     {
@@ -27,7 +27,7 @@ public class PlayerEmotions : ImageResultsListener
         {
             Emotion = Emotions.Joy;
         }
-        else if (disgust >= 40)
+        else if (disgust >= 20)
         {
             Emotion = Emotions.Disgust;
         }
@@ -37,7 +37,7 @@ public class PlayerEmotions : ImageResultsListener
         }
         else
         {
-            Emotion = null;
+            Emotion = Emotions.None;
         }
     }
 

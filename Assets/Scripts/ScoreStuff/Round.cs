@@ -6,6 +6,8 @@ public class Round : MonoBehaviour {
 	public List<string> sentences;
 	public EmotionBinder eb;
 	public TextGenerator tg;
+	public UnityEngine.UI.Text sentence;
+	public GameObject speakNow;
 	private string currentSentence;
 	private bool newSentence = false;
 	private float timer = 1f;
@@ -21,6 +23,7 @@ public class Round : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space))
 		{
 			newSentence = !newSentence;
+			speakNow.SetActive(!speakNow.activeSelf);
 			if (counter == sentences.Count)
 			{
 				counter = 0;
@@ -29,10 +32,8 @@ public class Round : MonoBehaviour {
 			if (newSentence)
 			{
 				eb.ChangeTarget();
-			}
-			else
-			{
 				currentSentence = sentences[counter];
+				sentence.text = currentSentence;
 				counter++;
 			}
 		}

@@ -140,6 +140,8 @@ namespace Affdex
         /// <summary>
         /// Engagment score range of the value is [0, 100]
         /// </summary>
-		Engagement
+		Engagement,
+		//none
+		None
     }
 }

@@ -12,9 +12,9 @@ public class ScoreManager : MonoBehaviour
     public Sprite neutral;
     public Sprite joy;
     public Sprite anger;
-    public Sprite disgust;
+	public Sprite disgust;
 
-    private Emotions? currentEmotion;
+    private Emotions currentEmotion;
     private Emotions targetEmotion;
     private PlayerEmotions emotions;
 
@@ -67,7 +67,7 @@ public class ScoreManager : MonoBehaviour
 
         switch (currentEmotion)
         {
-            case null:
+            case Emotions.None:
                 img.sprite = neutral;
                 break;
             case Emotions.Joy:
@@ -77,8 +77,13 @@ public class ScoreManager : MonoBehaviour
                 img.sprite = anger;
                 break;
             case Emotions.Disgust:
-                img.sprite = disgust;
+				img.sprite = disgust;
                 break;
         }
     }
+
+	public void SetTarget(Emotions target)
+	{
+		this.targetEmotion = target;
+	}
 }
