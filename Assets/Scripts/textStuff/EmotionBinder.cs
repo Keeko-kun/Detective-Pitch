@@ -22,13 +22,13 @@ public class EmotionBinder : MonoBehaviour {
 	public void ChangeTarget()
 	{
 		ImageEnum imageEnum = images [Random.Range (0, images.Count)];
-		target = imageEnum.image;
+		target.sprite = imageEnum.image;
 		this.emotion = imageEnum.emotion;
 	}
 }
 
 public struct ImageEnum
 {
-	public Image image;
+	public Sprite image;
 	public EmotionEnum emotion;
 }
