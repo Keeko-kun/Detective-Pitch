@@ -79,7 +79,7 @@ public class ScoreManager : MonoBehaviour
 
         Score = (float)System.Math.Round(Score, 1);
 
-        Debug.Log(Score);
+        //Debug.Log(Score);
     }
 
     private void UpdateEmotion()
