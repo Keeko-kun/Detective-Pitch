@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
     private Emotions currentEmotion;
     private Emotions targetEmotion;
     private PlayerEmotions emotions;
+    private ScoreGraph graph;
 
     private int ticks;
     private int points;
@@ -35,6 +36,7 @@ public class ScoreManager : MonoBehaviour
         emotions = GetComponent<PlayerEmotions>();
         img.sprite = neutral;
         TotalScore = 0;
+        graph = GetComponent<ScoreGraph>();
     }
 
     public void StartScore()
@@ -63,6 +65,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    private void UpdateGraph()
+    {
+        graph.pointsAtTick.Add(Score);
+    }
+
     public void SaveScore()
     {
         TotalScore += Score;
@@ -81,7 +88,11 @@ public class ScoreManager : MonoBehaviour
 
         Score = (float)System.Math.Round(Score, 1);
 
-		scoreText.text = Score.ToString ();
+        if (scoreText != null)
+        {
+            scoreText.text = Score.ToString();
+        }
+
         //Debug.Log(Score);
     }
 
