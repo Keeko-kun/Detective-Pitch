@@ -59,6 +59,7 @@ public class ScoreManager : MonoBehaviour
             ticks++;
             UpdateEmotion();
             CompareEmotion();
+            UpdateGraph();
             yield return new WaitForSecondsRealtime(.15f);
         }
     }

@@ -19,6 +19,7 @@ public class Round : MonoBehaviour {
 	private int round;
     private ScoreManager scores;
 	private MP speech;
+    private ScoreGraph graph;
 
     private bool ended = false;
     private string ScoreScreen = "";
@@ -31,6 +32,7 @@ public class Round : MonoBehaviour {
         PlayerPrefs.SetInt("rounds", totalRounds * sentencePerRound);
         scores = GetComponent<ScoreManager>();
 		speech = GetComponent<MP> ();
+        graph = GetComponent<ScoreGraph>();
 	}
 	
 	// Update is called once per frame
@@ -62,6 +64,7 @@ public class Round : MonoBehaviour {
             {
                 Debug.Log("hier");
                 scores.StopScore();
+                graph.DrawGraph();
 				speech.StopRound ();
             }
 		}
