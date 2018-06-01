@@ -18,7 +18,7 @@ public class ShowScore : MonoBehaviour {
 
     public void Retry()
     {
-        SceneManager.LoadScene("TextWithEmotions");
+        SceneManager.LoadScene(1);
     }
 
     public void MainMenu()

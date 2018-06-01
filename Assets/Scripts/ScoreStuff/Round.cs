@@ -20,6 +20,7 @@ public class Round : MonoBehaviour {
     private ScoreManager scores;
     private ScoreGraph graph;
 	private Speech speech;
+	private Mp mp;
 
     private bool ended = false;
     private string ScoreScreen = "";
@@ -33,6 +34,7 @@ public class Round : MonoBehaviour {
         scores = GetComponent<ScoreManager>();
         graph = GetComponent<ScoreGraph>();
 		speech = GetComponent<Speech> ();
+		mp = GetComponent<Mp> ();
 	}
 	
 	// Update is called once per frame
@@ -40,9 +42,10 @@ public class Round : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space))
 		{
 			if (counter > sentences.Count && ended)
+			{
 				speech.StopRound ();
-                EndGame();
-
+				EndGame ();
+			}
 			newSentence = !newSentence;
 			speakNow.SetActive(!speakNow.activeSelf);
 			if (counter == sentences.Count)
@@ -56,8 +59,11 @@ public class Round : MonoBehaviour {
                 eb.ChangeTarget();
 				currentSentence = sentences[counter];
 				sentence.text = currentSentence;
-				if(speech != null)
+				if (speech != null)
+				{
 					speech.StartRound (currentSentence);
+					mp.StartRecording ();
+				}
 				counter++;
 
 			}
@@ -65,9 +71,13 @@ public class Round : MonoBehaviour {
             {
                 Debug.Log("hier");
                 scores.StopScore();
-                graph.DrawGraph();
-				if(speech != null)
+				if(graph != null)
+                	graph.DrawGraph();
+				if (speech != null)
+				{
 					speech.StopRound ();
+					mp.StopRecording ();
+				}
             }
 		}
 	}
@@ -90,6 +100,6 @@ public class Round : MonoBehaviour {
 		
     public void EndGame() {
         ended = true;
-        SceneManager.LoadScene(ScoreScreen);
+        SceneManager.LoadScene(2);
     }
 }
