@@ -5,7 +5,7 @@ using UnityEngine.Windows.Speech;
 using UnityEngine.UI;
 using System.Linq;
 
-public class MP : MonoBehaviour {
+public class Speech : MonoBehaviour {
 
 	protected PhraseRecognizer recognizer;
 	public ConfidenceLevel confidence = ConfidenceLevel.Medium;

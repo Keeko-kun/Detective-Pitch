@@ -18,8 +18,8 @@ public class Round : MonoBehaviour {
 	private int counter;
 	private int round;
     private ScoreManager scores;
-	private MP speech;
     private ScoreGraph graph;
+	private Speech speech;
 
     private bool ended = false;
     private string ScoreScreen = "";
@@ -31,8 +31,8 @@ public class Round : MonoBehaviour {
 		round = 0;
         PlayerPrefs.SetInt("rounds", totalRounds * sentencePerRound);
         scores = GetComponent<ScoreManager>();
-		speech = GetComponent<MP> ();
         graph = GetComponent<ScoreGraph>();
+		speech = GetComponent<Speech> ();
 	}
 	
 	// Update is called once per frame
@@ -56,7 +56,8 @@ public class Round : MonoBehaviour {
                 eb.ChangeTarget();
 				currentSentence = sentences[counter];
 				sentence.text = currentSentence;
-				speech.StartRound (currentSentence);
+				if(speech != null)
+					speech.StartRound (currentSentence);
 				counter++;
 
 			}
@@ -66,6 +67,8 @@ public class Round : MonoBehaviour {
                 scores.StopScore();
                 graph.DrawGraph();
 				speech.StopRound ();
+				if(speech != null)
+					speech.StopRound ();
             }
 		}
 	}
