@@ -20,11 +20,11 @@ public class ScoreGraph : MonoBehaviour {
 
     public void DrawGraph()
     {
-        line.SetPositions(new Vector3[1] {new Vector3(0,0,0) });
+        line.positionCount = 0;
 
         float totalPoints = pointsAtTick.Count;
 
-        line.positionCount = totalPoints;
+        line.positionCount = (int)totalPoints;
 
         for (float i = 0; i < totalPoints; i++)
         {
@@ -33,6 +33,8 @@ public class ScoreGraph : MonoBehaviour {
 
             line.SetPosition((int)i, new Vector3(x, y, -10));
         }
+
+        pointsAtTick.Clear();
     }
 
 }
