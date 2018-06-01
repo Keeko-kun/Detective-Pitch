@@ -18,7 +18,7 @@ public class Round : MonoBehaviour {
 	private int counter;
 	private int round;
     private ScoreManager scores;
-	private MP speech;
+	private Speech speech;
 
     private bool ended = false;
     private string ScoreScreen = "";
@@ -30,7 +30,7 @@ public class Round : MonoBehaviour {
 		round = 0;
         PlayerPrefs.SetInt("rounds", totalRounds * sentencePerRound);
         scores = GetComponent<ScoreManager>();
-		speech = GetComponent<MP> ();
+		speech = GetComponent<Speech> ();
 	}
 	
 	// Update is called once per frame
