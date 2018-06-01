@@ -54,7 +54,8 @@ public class Round : MonoBehaviour {
                 eb.ChangeTarget();
 				currentSentence = sentences[counter];
 				sentence.text = currentSentence;
-				speech.StartRound (currentSentence);
+				if(speech != null)
+					speech.StartRound (currentSentence);
 				counter++;
 
 			}
@@ -62,7 +63,8 @@ public class Round : MonoBehaviour {
             {
                 Debug.Log("hier");
                 scores.StopScore();
-				speech.StopRound ();
+				if(speech != null)
+					speech.StopRound ();
             }
 		}
 	}

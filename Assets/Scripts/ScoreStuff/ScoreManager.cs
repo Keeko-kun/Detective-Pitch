@@ -13,11 +13,11 @@ public class ScoreManager : MonoBehaviour
     public Sprite joy;
     public Sprite anger;
 	public Sprite disgust;
+	public UnityEngine.UI.Text scoreText;
 
     private Emotions currentEmotion;
     private Emotions targetEmotion;
     private PlayerEmotions emotions;
-    private ScoreGraph graph;
 
     private int ticks;
     private int points;
@@ -35,7 +35,6 @@ public class ScoreManager : MonoBehaviour
         emotions = GetComponent<PlayerEmotions>();
         img.sprite = neutral;
         TotalScore = 0;
-        graph = GetComponent<ScoreGraph>();
     }
 
     public void StartScore()
@@ -73,7 +72,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (currentEmotion == targetEmotion)
         {
-            Debug.Log("ayy");
+            //Debug.Log("ayy");
             points++;
         }
 
@@ -81,12 +80,8 @@ public class ScoreManager : MonoBehaviour
 
         Score = (float)System.Math.Round(Score, 1);
 
-        Debug.Log(Score);
-    }
-
-    private void UpdateGraph()
-    {
-        graph.pointsAtTick.Add(Score);
+		scoreText.text = Score.ToString ();
+        //Debug.Log(Score);
     }
 
     private void UpdateEmotion()
