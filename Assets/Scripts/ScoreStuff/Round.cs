@@ -66,7 +66,6 @@ public class Round : MonoBehaviour {
                 Debug.Log("hier");
                 scores.StopScore();
                 graph.DrawGraph();
-				speech.StopRound ();
 				if(speech != null)
 					speech.StopRound ();
             }

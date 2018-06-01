@@ -24,6 +24,8 @@ public class ScoreGraph : MonoBehaviour {
 
         float totalPoints = pointsAtTick.Count;
 
+        line.positionCount = totalPoints;
+
         for (float i = 0; i < totalPoints; i++)
         {
             float x = (containerSize.x / totalPoints) * i;
