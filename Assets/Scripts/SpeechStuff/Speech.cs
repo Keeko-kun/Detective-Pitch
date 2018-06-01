@@ -39,7 +39,8 @@ public class Speech : MonoBehaviour {
 	public void StopRound()
 	{
 		keywords.Clear();
-		recognizer.Stop ();
+        if (recognizer != null)
+		    recognizer.Stop ();
 	}
 	
 	private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
