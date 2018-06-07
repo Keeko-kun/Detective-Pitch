@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   sentence: {fileID: 123993379}
   roundText: {fileID: 1900531152}
   speakNow: {fileID: 422702738}
-  totalRounds: 10
+  totalRounds: 3
   sentencePerRound: 1
 --- !u!114 &13122893
 MonoBehaviour:
