@@ -19,6 +19,7 @@ public class SpawnCorridor : MonoBehaviour {
 			}
 			Instantiate (corridor, position, Quaternion.Euler (Vector3.zero));
 			position.z += zOffset;
+			numberOfCorridors--;
 		}
 	}
 }
