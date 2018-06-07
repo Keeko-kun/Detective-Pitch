@@ -1,34 +1,30 @@
 fileFormatVersion: 2
-guid: 59502ec07e83f8e44bfacf01114d755d
-timeCreated: 1528367770
+guid: 3dcf725eb072b8f4aa200a46abc2da7b
+timeCreated: 1528368668
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cube
-    100004: Cube_001
-    400000: //RootNode
-    400002: Cube
-    400004: Cube_001
+    100000: Cube
+    100002: Cube_001
+    100004: //RootNode
+    400000: Cube
+    400002: Cube_001
+    400004: //RootNode
     2100000: TileSet-Gijs
     2100002: Door
-    2300000: //RootNode
-    2300002: Cube
-    2300004: Cube_001
-    3300000: //RootNode
-    3300002: Cube
-    3300004: Cube_001
+    2100004: Door_001
+    2300000: Cube
+    2300002: Cube_001
+    2300004: //RootNode
+    3300000: Cube
+    3300002: Cube_001
+    3300004: //RootNode
     4300000: Cube
     4300002: Cube_001
     7400000: Default Take
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TileSet-Gijs
-    second: {fileID: 2100000, guid: 752381f805e787d45ab6f6cd9e83543f, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
