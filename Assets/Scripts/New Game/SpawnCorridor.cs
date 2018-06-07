@@ -21,9 +21,4 @@ public class SpawnCorridor : MonoBehaviour {
 			position.z += zOffset;
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
