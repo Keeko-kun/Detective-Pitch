@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     static private int mode;
     private string modeString;
     public UnityEngine.UI.Text modeText;
+    public int sceneload;
 
 	// Use this for initialization
 	void Start ()
@@ -41,7 +42,7 @@ public class Menu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(sceneload);
 
     }
 
