@@ -140,7 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2cd0aff1f6f0b49ab7569f8e1313a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corridor: {fileID: 1642998488681860, guid: 5e09b0e563bc79e4a9283b7fa406ed05, type: 2}
+  prefab: {fileID: 1969003478255140, guid: 70a084c46639279499629544c7e2d57f, type: 2}
+  spriteEmotion: {fileID: 0}
+  emotionsOfCorridors: 
   numberOfCorridors: 8
   zOffset: 8
 --- !u!4 &465946215
@@ -262,3 +264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb24c915316c4f4b9539848ea6440e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modeText: {fileID: 0}
