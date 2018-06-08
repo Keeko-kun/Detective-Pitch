@@ -5,12 +5,15 @@ using Affdex;
 
 public class SpawnCorridor : MonoBehaviour {
 
-	public GameObject prefab;
+    [Header("Corridor Settings")]
+    public GameObject prefab;
 	public EmotionsAndSprites spriteEmotion;
 	public List<Emotions> emotionsOfCorridors;
 	public int numberOfCorridors;
 	public float zOffset;
-	private Vector3 position;
+    public List<GameObject> corridors;
+
+    private Vector3 position;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +32,9 @@ public class SpawnCorridor : MonoBehaviour {
 			emotionsOfCorridors.Add (imageEnum.emotion);
 
 			position.z += zOffset;
+
+            corridors.Add(corridor);
+
 			numberOfCorridors--;
 		}
 	}

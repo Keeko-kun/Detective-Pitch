@@ -407,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emo1: {fileID: 212563066103789300}
   emo2: {fileID: 212175881363355654}
+  smoke: {fileID: 1108787861468840, guid: 5a6b858d6441db746b7fdfe83c420cd8, type: 2}
 --- !u!212 &212175881363355654
 SpriteRenderer:
   m_ObjectHideFlags: 1
