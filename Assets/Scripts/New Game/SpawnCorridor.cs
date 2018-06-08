@@ -12,11 +12,14 @@ public class SpawnCorridor : MonoBehaviour {
 	public int numberOfCorridors;
 	public float zOffset;
     public List<GameObject> corridors;
+	public int corridorNumber;
+	public NewScoreManager scoreManager;
 
     private Vector3 position;
 
 	// Use this for initialization
 	void Start () {
+		corridorNumber = 0;
 		emotionsOfCorridors = new List<Emotions> ();
 		while (numberOfCorridors > 0)
 		{
@@ -37,5 +40,21 @@ public class SpawnCorridor : MonoBehaviour {
 
 			numberOfCorridors--;
 		}
+	}
+
+	public void MoveOneCorridor()
+	{
+		corridorNumber++;
+		scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
+	}
+
+	public void StartScore()
+	{
+		scoreManager.StartScore ();
+	}
+
+	public void StopScore()
+	{
+		scoreManager.StopScore ();
 	}
 }
