@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 465946215}
   - component: {fileID: 465946214}
   m_Layer: 0
-  m_Name: CorridorSpawner
+  m_Name: CorridorMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   emotionsOfCorridors: 
   numberOfCorridors: 8
   zOffset: 8
+  corridors: []
 --- !u!4 &465946215
 Transform:
   m_ObjectHideFlags: 0
@@ -197,6 +198,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114281848028605184, guid: e6b050e2cb92dae47a129506bbad4b74,
+        type: 2}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 465946214}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6b050e2cb92dae47a129506bbad4b74, type: 2}
   m_IsPrefabParent: 0
