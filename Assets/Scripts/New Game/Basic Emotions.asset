@@ -14,11 +14,9 @@ MonoBehaviour:
   emotions:
   - image: {fileID: 21300000, guid: 2c67e17ee3071764dbd82f921a8be125, type: 3}
     emotion: 0
-  - image: {fileID: 21300000, guid: f04508c83cd737445ba1f01acb331263, type: 3}
-    emotion: 3
+  - image: {fileID: 21300000, guid: 28582653035a0a84a86efbf6dfb1bea4, type: 3}
+    emotion: 2
   - image: {fileID: 21300000, guid: a3995425cadd2954c94511d877ad6d27, type: 3}
     emotion: 4
   - image: {fileID: 21300000, guid: 3f63716487cdd7648a7d186823d9dffb, type: 3}
     emotion: 2
-  - image: {fileID: 21300000, guid: 3f63716487cdd7648a7d186823d9dffb, type: 3}
-    emotion: 9

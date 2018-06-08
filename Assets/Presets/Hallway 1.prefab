@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28a4e3a1bd54cc46995d223dada534a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotion1: {fileID: 1810310598554432}
-  emotion2: {fileID: 1206617279138798}
+  emo1: {fileID: 212563066103789300}
+  emo2: {fileID: 212175881363355654}
 --- !u!212 &212175881363355654
 SpriteRenderer:
   m_ObjectHideFlags: 1

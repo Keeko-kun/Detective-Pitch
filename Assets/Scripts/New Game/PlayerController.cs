@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 
-        if (targetPosition.z - transform.position.z < 0.25)
+        if (targetPosition.z - transform.position.z < 0.45)
         {
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, .75f);
             anim.SetBool("walking", false);
