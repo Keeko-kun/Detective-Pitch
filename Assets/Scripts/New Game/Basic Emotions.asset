@@ -19,4 +19,4 @@ MonoBehaviour:
   - image: {fileID: 21300000, guid: a3995425cadd2954c94511d877ad6d27, type: 3}
     emotion: 4
   - image: {fileID: 21300000, guid: 3f63716487cdd7648a7d186823d9dffb, type: 3}
-    emotion: 2
+    emotion: 9
