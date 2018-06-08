@@ -113,6 +113,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &465946213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 465946215}
+  - component: {fileID: 465946214}
+  m_Layer: 0
+  m_Name: CorridorSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &465946214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465946213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2cd0aff1f6f0b49ab7569f8e1313a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridor: {fileID: 1642998488681860, guid: 5e09b0e563bc79e4a9283b7fa406ed05, type: 2}
+  numberOfCorridors: 8
+  zOffset: 8
+--- !u!4 &465946215
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465946213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023403635
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +167,6 @@ GameObject:
   - component: {fileID: 1023403638}
   - component: {fileID: 1023403637}
   - component: {fileID: 1023403636}
-  - component: {fileID: 1023403640}
   - component: {fileID: 1023403641}
   - component: {fileID: 1023403642}
   m_Layer: 0
@@ -197,20 +239,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -9.156, z: 0}
---- !u!114 &1023403640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1023403635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2cd0aff1f6f0b49ab7569f8e1313a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  corridor: {fileID: 1642998488681860, guid: 5e09b0e563bc79e4a9283b7fa406ed05, type: 2}
-  numberOfCorridors: 8
-  zOffset: 8
 --- !u!114 &1023403641
 MonoBehaviour:
   m_ObjectHideFlags: 0

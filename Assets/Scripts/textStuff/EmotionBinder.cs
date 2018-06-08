@@ -37,3 +37,4 @@ public class ImageEnum
 		this.emotion = emotion;
 	}
 }
+

@@ -10,12 +10,8 @@ public class SpawnCorridor : MonoBehaviour {
 	private Vector3 position;
 
 	// Use this for initialization
-	void Start ()
-	{
-	    Menu menu = GetComponent<Menu>();
-	    int numberOfCorridors = menu.GetMode();
-
-        while (numberOfCorridors > 0)
+	void Start () {
+		while (numberOfCorridors > 0)
 		{
 			if(position == null)
 			{
