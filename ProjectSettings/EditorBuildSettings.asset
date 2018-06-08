@@ -6,14 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu-Test.unity
+    path: Assets/Scenes/Sprint 2/MainMenu-Test.unity
     guid: 262823cfb3fbf0643bc7b30c6bbaed09
   - enabled: 1
-    path: Assets/Scenes/Speech.unity
+    path: Assets/Scenes/Sprint 2/Speech.unity
     guid: ff24cf2c65c46694c97121c85fe35cc3
   - enabled: 1
-    path: Assets/Scenes/ScoreScreen.unity
+    path: Assets/Scenes/Sprint 2/ScoreScreen.unity
     guid: 02f628c91266650408793723aea92539
   - enabled: 1
-    path: Assets/Scenes/TextWithEmotions.unity
+    path: Assets/Scenes/Sprint 2/TextWithEmotions.unity
     guid: f6318936d5823f647a4ba0a09421cfca
+  - enabled: 1
+    path: Assets/Scenes/Sprint 3/StartScene.unity
+    guid: c3e3d6a0e88e0b64d93f3f35cf373af9
+  - enabled: 1
+    path: Assets/Scenes/Sprint 3/New Game.unity
+    guid: c2f01f70d7bb86941bbc6262a0ea86e3
+  - enabled: 1
+    path: Assets/Scenes/Sprint 3/EmotionDoors + Player Olaf.unity
+    guid: db51d0b8a7d966d44864a357ff7b1a81

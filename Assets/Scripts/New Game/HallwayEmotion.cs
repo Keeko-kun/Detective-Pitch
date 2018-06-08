@@ -7,6 +7,7 @@ public class HallwayEmotion : MonoBehaviour {
 
 	public SpriteRenderer emo1;
 	public SpriteRenderer emo2;
+    public GameObject smoke;
 
 	public void ChangeSprite(Sprite emotion)
 	{

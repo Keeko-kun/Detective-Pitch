@@ -5,15 +5,21 @@ using Affdex;
 
 public class SpawnCorridor : MonoBehaviour {
 
-	public GameObject prefab;
+    [Header("Corridor Settings")]
+    public GameObject prefab;
 	public EmotionsAndSprites spriteEmotion;
 	public List<Emotions> emotionsOfCorridors;
 	public int numberOfCorridors;
 	public float zOffset;
-	private Vector3 position;
+    public List<GameObject> corridors;
+	public int corridorNumber;
+	public NewScoreManager scoreManager;
+
+    private Vector3 position;
 
 	// Use this for initialization
 	void Start () {
+		corridorNumber = 0;
 		emotionsOfCorridors = new List<Emotions> ();
 		while (numberOfCorridors > 0)
 		{
@@ -29,7 +35,26 @@ public class SpawnCorridor : MonoBehaviour {
 			emotionsOfCorridors.Add (imageEnum.emotion);
 
 			position.z += zOffset;
+
+            corridors.Add(corridor);
+
 			numberOfCorridors--;
 		}
+	}
+
+	public void MoveOneCorridor()
+	{
+		corridorNumber++;
+		scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
+	}
+
+	public void StartScore()
+	{
+		scoreManager.StartScore ();
+	}
+
+	public void StopScore()
+	{
+		scoreManager.StopScore ();
 	}
 }

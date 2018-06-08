@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    [Header("Player Settings")]
     public Vector3 targetPosition;
     public float smoothTime;
 
+    [Header("References")]
+    public SpawnCorridor generator;
+
     private Vector3 velocity = Vector3.zero;
     private Animator anim;
+
+	private bool onPosition = false;
 
     private void Start()
     {
@@ -20,7 +26,8 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.A)) //Debug for testing purposes, remove this when other elements are ready.
         {
-            MoveForward();
+			generator.StopScore ();
+            StartCoroutine(OpenDoor());
         }
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
@@ -29,6 +36,12 @@ public class PlayerController : MonoBehaviour {
         {
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, .75f);
             anim.SetBool("walking", false);
+			if (onPosition)
+			{
+				generator.MoveOneCorridor ();
+				onPosition = false;
+				generator.StartScore ();
+			}
         }
     }
 
@@ -36,6 +49,17 @@ public class PlayerController : MonoBehaviour {
     {
         targetPosition.z += 8;
         anim.SetBool("walking", true);
+		onPosition = true;
+    }
+
+    public IEnumerator OpenDoor()
+    {
+		float level = generator.corridorNumber;
+        GameObject corridor = generator.corridors[(int)level];
+        corridor.GetComponent<Animator>().SetBool("open", true);
+        yield return new WaitForSecondsRealtime(1f);
+        Instantiate(corridor.GetComponent<HallwayEmotion>().smoke, corridor.transform);
+        MoveForward();
     }
 
 }
