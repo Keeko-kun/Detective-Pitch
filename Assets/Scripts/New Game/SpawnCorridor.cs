@@ -17,7 +17,7 @@ public class SpawnCorridor : MonoBehaviour {
 			{
 				position = Vector3.zero;
 			}
-			Instantiate (corridor, position, corridor.transform.rotation);
+			Instantiate (corridor, position, corridor.transform.rotation, gameObject.transform);
 			position.z += zOffset;
 			numberOfCorridors--;
 		}
