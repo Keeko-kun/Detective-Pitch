@@ -8,6 +8,7 @@ public class DDRScroll : MonoBehaviour
     [Header("Settings")]
     [Range(0.5f, 5f)]
     public float scrollSpeed;
+    public bool start;
 
     [Header("Objects")]
     public RectTransform container;
@@ -25,23 +26,25 @@ public class DDRScroll : MonoBehaviour
 
     private void FixedUpdate()
     {
-        container.anchoredPosition = new Vector2(0, container.anchoredPosition.y + 1f * scrollSpeed);
-
-        if (stop)
+        if (start)
         {
-            return;
-        }
+            container.anchoredPosition = new Vector2(0, container.anchoredPosition.y + 1f * scrollSpeed);
 
-        if (container.anchoredPosition.y > ((generator.spacing * 10) * current))
-        {
-            score.BossEmotion(generator.emotions[current].GetComponent<DDREmotion>().emotion.emotion);
-            current++;
-            if (current >= generator.emotions.Count)
+            if (stop)
             {
-                stop = true;
+                return;
+            }
+
+            if (container.anchoredPosition.y > ((generator.spacing * 10) * current))
+            {
+                score.BossEmotion(generator.emotions[current].GetComponent<DDREmotion>().emotion.emotion);
+                current++;
+                if (current >= generator.emotions.Count)
+                {
+                    stop = true;
+                }
             }
         }
-
     }
 
 }
