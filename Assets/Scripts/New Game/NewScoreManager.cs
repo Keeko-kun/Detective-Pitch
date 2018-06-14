@@ -33,7 +33,9 @@ public class NewScoreManager : MonoBehaviour {
 		targetEmotion = Emotions.None; //Standard Joy, remove this
 		emotions = GetComponent<PlayerEmotions>();
 		TotalScore = 0;
+		Score = 0;
 		canMove = true;
+		SaveScore ();
 	}
 
 	void Update()
@@ -48,8 +50,7 @@ public class NewScoreManager : MonoBehaviour {
 
 	public void SaveScore()
 	{
-		TotalScore += Score;
-		PlayerPrefs.SetFloat("score", TotalScore);
+		PlayerPrefs.SetFloat("score", Score);
 	}
 
 	private void CompareEmotion()
