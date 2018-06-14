@@ -40,6 +40,7 @@ public class SpawnCorridor : MonoBehaviour {
 
 			numberOfCorridors--;
 		}
+		scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
 	}
 
 	public void MoveOneCorridor()
@@ -53,8 +54,13 @@ public class SpawnCorridor : MonoBehaviour {
 		scoreManager.StartScore ();
 	}
 
-	public void StopScore()
+	public bool CanMove()
 	{
-		scoreManager.StopScore ();
+		return scoreManager.canMove;
+	}
+
+	public void SetCanMove(bool canMove)
+	{
+		scoreManager.canMove = canMove;
 	}
 }

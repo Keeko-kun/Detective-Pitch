@@ -6,10 +6,13 @@ using Affdex;
 
 public class NewScoreManager : MonoBehaviour {
 
+	[Header("UI")]
 	public Image img;
-
 	public EmotionsAndSprites spriteEmotion;
 	public UnityEngine.UI.Text scoreText;
+
+	public PlayerController playercontroller;
+	public bool canMove;
 
 	private Emotions currentEmotion;
 	private Emotions targetEmotion;
@@ -30,31 +33,17 @@ public class NewScoreManager : MonoBehaviour {
 		targetEmotion = Emotions.None; //Standard Joy, remove this
 		emotions = GetComponent<PlayerEmotions>();
 		TotalScore = 0;
+		canMove = true;
+	}
+
+	void Update()
+	{
+		UpdateEmotion();
 	}
 
 	public void StartScore()
 	{
-		running = true;
-		StartCoroutine(EmotionTimer());
-	}
-
-	public void StopScore()
-	{
-		running = false;
-	}
-
-	public IEnumerator EmotionTimer()
-	{
-		ticks = 0;
-		points = 0;
-
-		while (running)
-		{
-			ticks++;
-			UpdateEmotion();
-			CompareEmotion();
-			yield return new WaitForSecondsRealtime(.15f);
-		}
+		CompareEmotion();
 	}
 
 	public void SaveScore()
@@ -65,15 +54,19 @@ public class NewScoreManager : MonoBehaviour {
 
 	private void CompareEmotion()
 	{
+		canMove = false;
 		if (currentEmotion == targetEmotion)
 		{
-			//Debug.Log("ayy");
-			points++;
+			points = 100;
+			Score += points;
+			SaveScore ();
+			StartCoroutine(playercontroller.OpenDoor ());
 		}
-
-		Score = ((float)points / (float)ticks) * 100f;
-
-		Score = (float)System.Math.Round(Score, 1);
+		else
+		{
+			playercontroller.ApplyDamage ();
+			canMove = true;
+		}
 
 		if (scoreText != null)
 		{

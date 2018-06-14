@@ -8,12 +8,16 @@ public class Menu : MonoBehaviour
     static private int mode;
     private string modeString;
     public UnityEngine.UI.Text modeText;
-    public int sceneload;
+	private int sceneload;
+    public int sceneloadEasy;
+	public int sceneloadMedium;
+	public int sceneloadHard;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    mode = 2;
+		sceneload = sceneloadMedium;
 	    modeString = "Medium";
 	}
 	
@@ -27,14 +31,17 @@ public class Menu : MonoBehaviour
         mode = newMode;
         switch (mode)
         {
-            case 1:
-                modeString = "Easy";
+			case 1:
+				modeString = "Easy";
+				sceneload = sceneloadEasy;
                 break;
-            case 2:
-                modeString = "Medium";
+			case 2:
+				modeString = "Medium";
+				sceneload = sceneloadMedium;
                 break;
             case 3:
                 modeString = "Hard";
+				sceneload = sceneloadHard;
                 break;
         }
         modeText.text = "Mode: " + modeString;
@@ -52,7 +59,7 @@ public class Menu : MonoBehaviour
         switch (mode)
         {
             case 1:
-                number = 5;
+				number = 5;
                 modeString = "Easy";
                 break;
             case 2:
