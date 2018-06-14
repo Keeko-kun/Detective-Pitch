@@ -25,6 +25,7 @@ public class DDRGenerator : MonoBehaviour {
             emotion.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, i * (spacing * 10) * - 1, 0);
             emotion.GetComponent<Image>().sprite = imageEnum.image;
             emotion.GetComponent<DDREmotion>().emotion = imageEnum;
+            emotions.Add(emotion);
         }
     }
 }

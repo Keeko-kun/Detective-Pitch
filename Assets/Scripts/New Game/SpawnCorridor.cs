@@ -14,11 +14,18 @@ public class SpawnCorridor : MonoBehaviour {
     public List<GameObject> corridors;
 	public int corridorNumber;
 	public NewScoreManager scoreManager;
+    public GameObject bossRoom;
+    public GameObject DDR;
 
     private Vector3 position;
+    private GameObject bossRoomObject;
+    private AudioSource bossSound;
+    public bool inBossRoom;
 
 	// Use this for initialization
 	void Start () {
+        bossSound = GetComponent<AudioSource>();
+
 		corridorNumber = 0;
 		emotionsOfCorridors = new List<Emotions> ();
 		while (numberOfCorridors > 0)
@@ -41,11 +48,18 @@ public class SpawnCorridor : MonoBehaviour {
 			numberOfCorridors--;
 		}
 		scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
+
+        bossRoomObject = Instantiate(bossRoom, position, bossRoom.transform.rotation, gameObject.transform);
 	}
 
 	public void MoveOneCorridor()
 	{
 		corridorNumber++;
+        if (corridorNumber >= emotionsOfCorridors.Count)
+        {
+            inBossRoom = true;
+            return;
+        }
 		scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
 	}
 
@@ -63,4 +77,20 @@ public class SpawnCorridor : MonoBehaviour {
 	{
 		scoreManager.canMove = canMove;
 	}
+
+    public void InitiateBossFight()
+    {
+        bossRoomObject.GetComponent<Animator>().SetBool("moveOlaf", true);
+        StartCoroutine(PlaySound());
+    }
+
+    private IEnumerator PlaySound()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        bossSound.PlayOneShot(bossSound.clip);
+        yield return new WaitForSecondsRealtime(1f);
+        DDR.GetComponent<fadePanel>().visible = true;
+        yield return new WaitForSecondsRealtime(.5f);
+        DDR.GetComponent<DDRScroll>().start = true;
+    }
 }

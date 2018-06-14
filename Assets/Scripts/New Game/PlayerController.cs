@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour {
 				generator.MoveOneCorridor ();
 				onPosition = false;
 				generator.SetCanMove (true);
+
+                if (generator.inBossRoom)
+                {
+                    generator.InitiateBossFight();
+                }
 			}
         }
     }

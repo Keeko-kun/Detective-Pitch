@@ -53,6 +53,22 @@ public class NewScoreManager : MonoBehaviour {
 		PlayerPrefs.SetFloat("score", Score);
 	}
 
+    public void BossEmotion(Emotions target)
+    {
+        canMove = false;
+        if (currentEmotion == target)
+        {
+            points = 150;
+            Score += points;
+            SaveScore();
+
+            if (scoreText != null)
+            {
+                scoreText.text = Score.ToString();
+            }
+        }
+    }
+
 	private void CompareEmotion()
 	{
 		canMove = false;
