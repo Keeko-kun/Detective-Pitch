@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class DDRScroll : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [Header("Settings")]
+    [Range(0.5f, 5f)]
+    public float scrollSpeed;
+
+    [Header("Objects")]
+    public RectTransform container;
+
+    private void FixedUpdate()
+    {
+        container.anchoredPosition = new Vector2(0, container.anchoredPosition.y + 1f * scrollSpeed);
+    }
+
 }
