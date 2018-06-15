@@ -291,6 +291,11 @@ Prefab:
       propertyPath: generator
       value: 
       objectReference: {fileID: 465946214}
+    - target: {fileID: 114290448706884072, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
+        type: 2}
+      propertyPath: sceneload
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1f9106cfda3ad3419800e2bfdc7a3d4, type: 2}
   m_IsPrefabParent: 0
@@ -482,6 +487,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114296394777254192, guid: 74ae90941c76c6748b7c204ec405a412,
+        type: 2}
+      propertyPath: m_Text
+      value: 000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74ae90941c76c6748b7c204ec405a412, type: 2}
