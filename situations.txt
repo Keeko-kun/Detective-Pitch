@@ -1,0 +1,8 @@
+You are telling some basic information about your product.;none
+You are telling about the problems in the world. You are speaking louder.;anger
+Quote:"WHY WOULD ANYONE DO THIS!!!;anger
+My code is full of GameObject.find().;disgust
+The game is out now!!;joy
+You are telling about being game over right before the end of a game.;anger
+You are talking about game mechanics of another game which are poorly designed.;disgust
+You are talking about the future while promoting your product.;joy

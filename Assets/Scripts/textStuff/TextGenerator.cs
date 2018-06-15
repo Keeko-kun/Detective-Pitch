@@ -15,7 +15,7 @@ public class TextGenerator : MonoBehaviour {
 
         rand = new System.Random();
 
-        StreamReader sentenceReader = new StreamReader("sentences.txt");
+        StreamReader sentenceReader = new StreamReader("situations.txt");
 
         string line = "";
 
@@ -40,7 +40,18 @@ public class TextGenerator : MonoBehaviour {
         return sentence;
     }
 
-	public List<string> GenerateMultiple(int number)
+    public string[] GenerateSituation()
+    {
+        string sentence = sentences[rand.Next(1, sentences.Count)];
+        string[] result = sentence.Split(';');
+        foreach (string s in result)
+        {
+            Debug.Log(s);
+        }
+        return result;
+    }
+
+    public List<string> GenerateMultiple(int number)
 	{
 		List<string> sentences = new List<string> ();
 		for (int i = 0; i < number; i++)
