@@ -94,6 +94,8 @@ public class NewScoreManager : MonoBehaviour {
 		}
 		else
 		{
+			highscores = PlayerPrefsX.GetFloatArray ("Scores");
+			highscoreNames = PlayerPrefsX.GetStringArray ("Names");
 			int index = -1;
 
 			for (int i = 0; i < highscores.Length; i++)
