@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827775c566d60a047a4b4fd370cf0d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneload: 4
+  sceneload: 5
   scoreText: {fileID: 72792293}
 --- !u!114 &1800541721
 MonoBehaviour:
