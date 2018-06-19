@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DDRScroll : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class DDRScroll : MonoBehaviour
                 if (current >= generator.emotions.Count)
                 {
                     stop = true;
+					//Insert boss explosion
+					SceneManager.LoadScene(7);
                 }
             }
         }

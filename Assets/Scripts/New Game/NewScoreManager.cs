@@ -6,13 +6,22 @@ using Affdex;
 
 public class NewScoreManager : MonoBehaviour {
 
-	[Header("UI")]
+	[Header("Game UI")]
 	public Image img;
 	public EmotionsAndSprites spriteEmotion;
     public Sprite questionMark;
     public UnityEngine.UI.Text scoreText;
-    public UnityEngine.UI.Text nameText;
+	public bool inGame = true;
 
+	[Header("Highscore UI")]
+	public GameObject submitHighscoreButton;
+	public GameObject submitHighscore;
+	public GameObject highscore;
+	public InputField nameText;
+	public UnityEngine.UI.Text highscores;
+	public UnityEngine.UI.Text scoreTextEndScreen;
+
+	[Header("Player")]
     public PlayerController playercontroller;
 	public bool canMove;
 
@@ -34,17 +43,32 @@ public class NewScoreManager : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
-		targetEmotion = Emotions.None; //Standard Joy, remove this
-		emotions = GetComponent<PlayerEmotions>();
-		TotalScore = 0;
-		Score = 0;
-		canMove = true;
-		SaveScore ();
+		if (inGame)
+		{
+			targetEmotion = Emotions.None; //Standard Joy, remove this
+			emotions = GetComponent<PlayerEmotions> ();
+			TotalScore = 0;
+			Score = 0;
+			canMove = true;
+			SaveScore ();
+		}
+		else
+		{
+			Score = PlayerPrefs.GetFloat ("score");
+			if (CheckHighscore ())
+			{
+				nameText.Select ();
+				nameText.ActivateInputField ();
+			}
+		}
 	}
 
 	void Update()
 	{
-		UpdateEmotion();
+		if (inGame)
+		{
+			UpdateEmotion ();
+		}
 	}
 
 	public void StartScore()
@@ -57,91 +81,106 @@ public class NewScoreManager : MonoBehaviour {
 		PlayerPrefs.SetFloat("score", Score);
 	}
 
+	public bool CheckHighscore()
+	{
+		float[] highscores = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		string[] highscoreNames = new string[10] { "", "", "", "", "", "", "", "", "", ""};
+		if (PlayerPrefsX.GetFloatArray ("Scores").Length == 0)
+		{
+			PlayerPrefsX.SetStringArray ("Names", highscoreNames);
+			PlayerPrefsX.SetFloatArray ("Scores", highscores);
+			showSubmit ();
+			return true;
+		}
+		else
+		{
+			int index = -1;
+
+			for (int i = 0; i < highscores.Length; i++)
+			{
+				if (Score > highscores [i])
+				{
+					index = i;
+					break;
+				}
+			}
+
+			if (index != -1)
+			{
+				showSubmit ();
+				return true;
+			}
+			else
+			{
+				FillHighscoreList (PlayerPrefsX.GetStringArray ("Names"), PlayerPrefsX.GetFloatArray ("Scores"));
+			}
+		}
+		return false;
+	}
+
+	public void showSubmit()
+	{
+		submitHighscoreButton.SetActive (true);
+		submitHighscore.SetActive (true);
+		highscore.SetActive (false);
+	}
+
     public void SaveHighScore()
     {
         string PlayerName = nameText.text;
-        if (TotalScore >= PlayerPrefs.GetFloat("score1", 0)) //Beat or equaled previous first score
-        {
-            PlayerPrefs.SetFloat("score5", PlayerPrefs.GetFloat("score4", 0));
-            PlayerPrefs.SetFloat("score4", PlayerPrefs.GetFloat("score3", 0));
-            PlayerPrefs.SetFloat("score3", PlayerPrefs.GetFloat("score2", 0));
-            PlayerPrefs.SetFloat("score2", PlayerPrefs.GetFloat("score1", 0));
-            //Replace previous scores
 
+		float[] highscores = PlayerPrefsX.GetFloatArray ("Scores");
+		string[] highscoreNames = PlayerPrefsX.GetStringArray ("Names");
 
-            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4", ""));
-            PlayerPrefs.SetString("name4", PlayerPrefs.GetString("name3", ""));
-            PlayerPrefs.SetString("name3", PlayerPrefs.GetString("name2", ""));
-            PlayerPrefs.SetString("name2", PlayerPrefs.GetString("name1", ""));
-            //Replace previous names
+		int index = -1;
 
+		for (int i = 0; i < highscores.Length; i++)
+		{
+			if (Score > highscores [i])
+			{
+				index = i;
+				break;
+			}
+		}
 
-            PlayerPrefs.SetFloat("score1", TotalScore);
-            PlayerPrefs.SetString("name1", PlayerName);
-            //Set score and name
+		if (index >= 0)
+		{
+			if (index == 9)
+			{
+				highscoreNames [index] = PlayerName;
+				highscores [index] = TotalScore;
+			}
+			else
+			{
+				for (int changeIndex = 8; changeIndex >= index; changeIndex--)
+				{
+					highscoreNames [changeIndex + 1] = highscoreNames [changeIndex];
+					highscores [changeIndex + 1] = highscores [changeIndex];
+				}
+				highscoreNames [index] = PlayerName;
+				highscores [index] = Score;
+			}
+		}
+		PlayerPrefsX.SetStringArray ("Names", highscoreNames);
+		PlayerPrefsX.SetFloatArray ("Scores", highscores);
 
-        }
-        else if (TotalScore > PlayerPrefs.GetFloat("score2", 0)) //Beat or equaled previous second score
-        {
-            PlayerPrefs.SetFloat("score5", PlayerPrefs.GetFloat("score4", 0));
-            PlayerPrefs.SetFloat("score4", PlayerPrefs.GetFloat("score3", 0));
-            PlayerPrefs.SetFloat("score3", PlayerPrefs.GetFloat("score2", 0));
-            //Replace previous scores
-
-
-            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4", ""));
-            PlayerPrefs.SetString("name4", PlayerPrefs.GetString("name3", ""));
-            PlayerPrefs.SetString("name3", PlayerPrefs.GetString("name2", ""));
-            //Replace previous names
-
-
-            PlayerPrefs.SetFloat("score2", TotalScore);
-            PlayerPrefs.SetString("name2", PlayerName);
-            //Set score and name
-
-        }
-        else if (TotalScore == PlayerPrefs.GetFloat("score3", 0)) //Beat or equaled previous third score
-        {
-            PlayerPrefs.SetFloat("score5", PlayerPrefs.GetFloat("score4", 0));
-            PlayerPrefs.SetFloat("score4", PlayerPrefs.GetFloat("score3", 0));
-            //Replace previous scores
-
-
-            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4", ""));
-            PlayerPrefs.SetString("name4", PlayerPrefs.GetString("name3", ""));
-            //Replace previous names
-
-
-            PlayerPrefs.SetFloat("score3", TotalScore);
-            PlayerPrefs.SetString("name3", PlayerName);
-            //Set score and name
-
-        }
-        else if (TotalScore == PlayerPrefs.GetFloat("score4", 0)) //Beat or equaled previous fourth score
-        {
-            PlayerPrefs.SetFloat("score5", PlayerPrefs.GetFloat("score4", 0));
-            //Replace previous scores
-
-
-            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4", ""));
-            //Replace previous names
-
-
-            PlayerPrefs.SetFloat("score4", TotalScore);
-            PlayerPrefs.SetString("name4", PlayerName);
-            //Set score and name
-
-        }
-        else if (TotalScore == PlayerPrefs.GetFloat("score5", 0)) //Beat or equaled previous fifth score
-        {
-            PlayerPrefs.SetFloat("score5", TotalScore);
-            PlayerPrefs.SetString("name5", PlayerName);
-            //Set score and name
-
-        }
-
-
+		FillHighscoreList (highscoreNames, highscores);
     }
+
+	private void FillHighscoreList(string[] names, float[] scores)
+	{
+		string highscoresText = "";
+		for (int i = 0; i < names.Length; i++)
+		{
+			highscoresText += (i + 1).ToString () + ".";
+			if ((i + 1) != names.Length)
+			{
+				highscoresText += " ";
+			}
+			highscoresText += names[i] + " " + scores[i] + System.Environment.NewLine;
+		}
+		highscores.text = highscoresText;
+	}
 
     public void BossEmotion(Emotions target)
     {
@@ -208,5 +247,21 @@ public class NewScoreManager : MonoBehaviour {
 	public void SetTarget(Emotions target)
 	{
 		this.targetEmotion = target;
+	}
+
+	public void ToUpperCase()
+	{
+		nameText.text = nameText.text.ToUpper ();
+	}
+
+	public void SubmitHighscore()
+	{
+		if (!nameText.text.Equals (""))
+		{
+			submitHighscoreButton.SetActive (false);
+			submitHighscore.SetActive (false);
+			highscore.SetActive (true);
+			SaveHighScore ();
+		}
 	}
 }
