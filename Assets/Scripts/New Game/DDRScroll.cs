@@ -44,7 +44,7 @@ public class DDRScroll : MonoBehaviour
                 {
                     stop = true;
 					//Insert boss explosion
-					SceneManager.LoadScene(7);
+					SceneManager.LoadScene(4);
                 }
             }
         }
