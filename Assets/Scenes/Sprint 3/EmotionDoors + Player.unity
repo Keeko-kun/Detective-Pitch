@@ -526,15 +526,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1839197278926102, guid: f1f9106cfda3ad3419800e2bfdc7a3d4, type: 2}
-      propertyPath: m_Name
-      value: PlayerController
-      objectReference: {fileID: 0}
-    - target: {fileID: 114290448706884072, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
-        type: 2}
-      propertyPath: generator
-      value: 
-      objectReference: {fileID: 465946214}
     - target: {fileID: 114290448706884072, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
         type: 2}
       propertyPath: health.Array.data[0]
@@ -550,16 +541,25 @@ Prefab:
       propertyPath: health.Array.data[2]
       value: 
       objectReference: {fileID: 201049346}
-    - target: {fileID: 114801968658285270, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
+    - target: {fileID: 114290448706884072, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
         type: 2}
-      propertyPath: scoreText
+      propertyPath: generator
       value: 
-      objectReference: {fileID: 158354959}
+      objectReference: {fileID: 465946214}
+    - target: {fileID: 1839197278926102, guid: f1f9106cfda3ad3419800e2bfdc7a3d4, type: 2}
+      propertyPath: m_Name
+      value: PlayerController
+      objectReference: {fileID: 0}
     - target: {fileID: 114801968658285270, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
         type: 2}
       propertyPath: img
       value: 
       objectReference: {fileID: 780988368}
+    - target: {fileID: 114801968658285270, guid: f1f9106cfda3ad3419800e2bfdc7a3d4,
+        type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 158354959}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1f9106cfda3ad3419800e2bfdc7a3d4, type: 2}
   m_IsPrefabParent: 0

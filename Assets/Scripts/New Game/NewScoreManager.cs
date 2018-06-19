@@ -9,6 +9,7 @@ public class NewScoreManager : MonoBehaviour {
 	[Header("UI")]
 	public Image img;
 	public EmotionsAndSprites spriteEmotion;
+    public Sprite questionMark;
     public UnityEngine.UI.Text scoreText;
     public UnityEngine.UI.Text nameText;
 
@@ -26,7 +27,9 @@ public class NewScoreManager : MonoBehaviour {
 
 	public float Score { get; set; }
 
-	public float TotalScore { get; set; }
+    public float TotalScore { get; set; }
+
+    public bool HasFace { get; set; }
 
 	// Use this for initialization
 	void Start()
@@ -184,14 +187,22 @@ public class NewScoreManager : MonoBehaviour {
 	{
 		currentEmotion = emotions.Emotion;
 
-		foreach (ImageEnum imageEnum in spriteEmotion.emotions)
-		{
-			if (imageEnum.emotion == currentEmotion)
-			{
-				img.sprite = imageEnum.image;
-				return;
-			}
-		}
+        if (HasFace)
+        {
+            foreach (ImageEnum imageEnum in spriteEmotion.emotions)
+            {
+                if (imageEnum.emotion == currentEmotion)
+                {
+
+                    img.sprite = imageEnum.image;
+                    return;
+                }
+            }
+        }
+        else
+        {
+            img.sprite = questionMark;
+        }
 	}
 
 	public void SetTarget(Emotions target)
