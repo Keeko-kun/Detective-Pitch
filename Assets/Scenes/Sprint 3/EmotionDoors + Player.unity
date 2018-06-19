@@ -162,7 +162,7 @@ MonoBehaviour:
   prefab: {fileID: 1969003478255140, guid: 70a084c46639279499629544c7e2d57f, type: 2}
   spriteEmotion: {fileID: 11400000, guid: ad02a878a82ad0a4bb008fd38290af64, type: 2}
   emotionsOfCorridors: 
-  numberOfCorridors: 8
+  numberOfCorridors: 1
   zOffset: 8
   corridors: []
   corridorNumber: 0
