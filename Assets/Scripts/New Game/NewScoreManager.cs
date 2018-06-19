@@ -174,12 +174,16 @@ public class NewScoreManager : MonoBehaviour {
 		string highscoresText = "";
 		for (int i = 0; i < names.Length; i++)
 		{
+			if(i == 0)
+				highscoresText += "<size=120><color=red>";
 			highscoresText += (i + 1).ToString () + ".";
 			if ((i + 1) != names.Length)
 			{
 				highscoresText += " ";
 			}
 			highscoresText += names[i] + " " + scores[i] + System.Environment.NewLine;
+			if(i == 0)
+				highscoresText += "</color></size>";
 		}
 		highscores.text = highscoresText;
 	}
