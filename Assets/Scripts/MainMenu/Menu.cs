@@ -11,14 +11,13 @@ public class Menu : MonoBehaviour
 	private int sceneload;
     public int sceneloadEasy;
 	public int sceneloadMedium;
-	public int sceneloadHard;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    mode = 2;
 		sceneload = sceneloadMedium;
-	    modeString = "Medium";
+	    modeString = "Standard";
 	}
 	
 	// Update is called once per frame
@@ -32,18 +31,15 @@ public class Menu : MonoBehaviour
         switch (mode)
         {
 			case 1:
-				modeString = "Easy";
+				modeString = "Standard";
 				sceneload = sceneloadEasy;
                 break;
 			case 2:
-				modeString = "Medium";
+				modeString = "Situations";
 				sceneload = sceneloadMedium;
                 break;
-            case 3:
-                modeString = "Hard";
-				sceneload = sceneloadHard;
-                break;
         }
+        PlayerPrefs.SetString("difficulty", modeString);
         modeText.text = "Mode: " + modeString;
     }
 
@@ -60,15 +56,11 @@ public class Menu : MonoBehaviour
         {
             case 1:
 				number = 5;
-                modeString = "Easy";
+                modeString = "Standard";
                 break;
             case 2:
                 number = 10;
-                modeString = "Medium";
-                break;
-            case 3:
-                number = 15;
-                modeString = "Hard";
+                modeString = "Situations";
                 break;
         }
         return number;

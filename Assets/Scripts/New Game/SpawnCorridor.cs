@@ -37,18 +37,24 @@ public class SpawnCorridor : MonoBehaviour {
 			}
 			GameObject corridor = Instantiate (prefab, position, prefab.transform.rotation, gameObject.transform) as GameObject;
 
-			HallwayEmotion hallwayScript = corridor.GetComponent<HallwayEmotion> ();
-			ImageEnum imageEnum = (ImageEnum) spriteEmotion.emotions.ToArray().GetValue(Random.Range (0, spriteEmotion.emotions.Count));
-			hallwayScript.ChangeSprite(imageEnum.image);
-			emotionsOfCorridors.Add (imageEnum.emotion);
+		    HallwayEmotion hallwayScript = corridor.GetComponent<HallwayEmotion>();
+		    ImageEnum imageEnum = (ImageEnum)spriteEmotion.emotions.ToArray()
+		        .GetValue(Random.Range(0, spriteEmotion.emotions.Count));
+		    hallwayScript.ChangeSprite(imageEnum.image);
+		    emotionsOfCorridors.Add(imageEnum.emotion);
 
-			position.z += zOffset;
+		    position.z += zOffset;
 
             corridors.Add(corridor);
 
 			numberOfCorridors--;
 		}
-		scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
+        if(PlayerPrefs.GetString("difficulty").Equals("Standard"))
+		    scoreManager.SetTarget (emotionsOfCorridors[corridorNumber]);
+        else
+        {
+            scoreManager.SetTarget(Emotions.None);
+        }
 
         bossRoomObject = Instantiate(bossRoom, position, bossRoom.transform.rotation, gameObject.transform);
 	}

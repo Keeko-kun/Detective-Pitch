@@ -32,3 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sprint 2/TextWithEmotions.unity
     guid: f6318936d5823f647a4ba0a09421cfca
+  - enabled: 1
+    path: Assets/Scenes/Sprint 3/EmotionDoors + Player Olaf Medium.unity
+    guid: 8200c7c3f7b6ed2449fc72b4ec011286
+  - enabled: 1
+    path: Assets/Scenes/Sprint 3/EmotionDoors + Player Situations.unity
+    guid: c983b606b5349c444a124fe7a190ad85

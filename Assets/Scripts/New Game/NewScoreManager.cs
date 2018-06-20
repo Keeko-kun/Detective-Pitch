@@ -43,8 +43,12 @@ public class NewScoreManager : MonoBehaviour {
 
     public bool HasFace { get; set; }
 
-	// Use this for initialization
-	void Start()
+    private string[] currentSituation;
+    public UnityEngine.UI.Text situationSentence;
+    public TextGenerator textGenerator;
+
+    // Use this for initialization
+    void Start()
 	{
 		if (inGame)
 		{
@@ -54,6 +58,7 @@ public class NewScoreManager : MonoBehaviour {
 			Score = 0;
 			canMove = true;
 			SaveScore ();
+            SetTarget(Emotions.None);
 		}
 		else
 		{
@@ -268,10 +273,42 @@ public class NewScoreManager : MonoBehaviour {
 
 	public void SetTarget(Emotions target)
 	{
-		this.targetEmotion = target;
-	}
+	    if (PlayerPrefs.GetString("difficulty").Equals("Standard"))
+	    {
+	        this.targetEmotion = target;
+	    }
+	    else
+	    {
+	        GetText();
+	        situationSentence.text = currentSituation[0];
 
-	public void ToUpperCase()
+	        switch (currentSituation[1])
+	        {
+	            case "none":
+	                targetEmotion = Emotions.None;
+	                break;
+	            case "joy":
+	                targetEmotion = Emotions.Joy;
+	                break;
+	            case "disgust":
+	                targetEmotion = Emotions.Disgust;
+	                break;
+	            case "anger":
+	                targetEmotion = Emotions.Anger;
+	                break;
+	            default:
+	                targetEmotion = Emotions.None;
+	                break;
+	        }
+	        Debug.Log("target:" + targetEmotion);
+        }
+	}
+    public void GetText()
+    {
+        currentSituation = textGenerator.GenerateSituation();
+    }
+
+    public void ToUpperCase()
 	{
 		nameText.text = nameText.text.ToUpper ();
 	}

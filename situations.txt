@@ -7,10 +7,10 @@ You are talking about your future vision of your product.;joy
 You are telling about your last project which became a hit upon release!.;joy
 You are talking about the hurdles you should overcome when working with a new team.;disgust
 You talk about the troubles yoy had with your previous publisher.;disgust
-You talk about the frustations you had when you missed a deadline for your project.anger
+You talk about the frustations you had when you missed a deadline for your project;anger
 You talk about the great teamwork you had going during your last project.;joy
 You talk about the financial projections of your current project.;none
-You talk about the profit your previous project accumulated.joy
+You talk about the profit your previous project accumulated;joy
 You talk about the non-existing teamwork you had during your last project.;anger
 You talk talk about the fun you had working on your last game.;fun
 You talk about the anger you felt when your game concept was refused.;anger
