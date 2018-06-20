@@ -16,6 +16,7 @@ public class SpawnCorridor : MonoBehaviour {
 	public NewScoreManager scoreManager;
     public GameObject bossRoom;
     public GameObject DDR;
+    public GameObject pressSpace;
 
     private Vector3 position;
     private GameObject bossRoomObject;
@@ -86,6 +87,7 @@ public class SpawnCorridor : MonoBehaviour {
 
     private IEnumerator PlaySound()
     {
+        pressSpace.GetComponent<fadePanel>().visible = false;
         yield return new WaitForSecondsRealtime(1f);
         bossSound.PlayOneShot(bossSound.clip);
         yield return new WaitForSecondsRealtime(1f);

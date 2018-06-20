@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 55444796}
   - component: {fileID: 55444798}
   - component: {fileID: 55444797}
+  - component: {fileID: 55444800}
+  - component: {fileID: 55444799}
   m_Layer: 5
   m_Name: SpaceToOpen
   m_TagString: Untagged
@@ -187,6 +189,30 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 55444795}
+--- !u!114 &55444799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 55444795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f2c7d4247b18248a310d6559dd5e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2.5
+  visible: 1
+--- !u!225 &55444800
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 55444795}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &158354959 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114296394777254192, guid: 74ae90941c76c6748b7c204ec405a412,
@@ -236,13 +262,14 @@ MonoBehaviour:
   prefab: {fileID: 1969003478255140, guid: 70a084c46639279499629544c7e2d57f, type: 2}
   spriteEmotion: {fileID: 11400000, guid: ad02a878a82ad0a4bb008fd38290af64, type: 2}
   emotionsOfCorridors: 
-  numberOfCorridors: 1
+  numberOfCorridors: 5
   zOffset: 8
   corridors: []
   corridorNumber: 0
   scoreManager: {fileID: 333581048}
   bossRoom: {fileID: 1412693186482518, guid: 01ea81a8f514ccb4b8793ac7e1ae1afa, type: 2}
   DDR: {fileID: 1968540858}
+  pressSpace: {fileID: 55444795}
   inBossRoom: 0
 --- !u!4 &465946215
 Transform:
@@ -483,7 +510,7 @@ Prefab:
     - target: {fileID: 114298054121682264, guid: ae6850f0d0c1e684fa776efb48a028f0,
         type: 2}
       propertyPath: scrollSpeed
-      value: 2.5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 114350166486032264, guid: ae6850f0d0c1e684fa776efb48a028f0,
         type: 2}
@@ -493,7 +520,7 @@ Prefab:
     - target: {fileID: 114350166486032264, guid: ae6850f0d0c1e684fa776efb48a028f0,
         type: 2}
       propertyPath: spacing
-      value: 25
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae6850f0d0c1e684fa776efb48a028f0, type: 2}
@@ -572,6 +599,95 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2136049453}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1564882129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1564882130}
+  - component: {fileID: 1564882133}
+  - component: {fileID: 1564882132}
+  - component: {fileID: 1564882131}
+  m_Layer: 5
+  m_Name: MatchTheEmotions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1564882130
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564882129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1968540859}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -208, y: 181.1}
+  m_SizeDelta: {x: 235, y: 95.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1564882131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564882129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1564882132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564882129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8455882, g: 0.8455882, b: 0.8455882, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c5d2ec20af46b1a4db1ce4e87e34a459, type: 3}
+    m_FontSize: 34
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 66
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Match The Emotions!
+--- !u!222 &1564882133
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564882129}
 --- !u!1001 &1616368834
 Prefab:
   m_ObjectHideFlags: 0
@@ -701,6 +817,11 @@ RectTransform:
 --- !u!1 &1968540858 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1606773255727738, guid: ae6850f0d0c1e684fa776efb48a028f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 941957340}
+--- !u!224 &1968540859 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224849230059233054, guid: ae6850f0d0c1e684fa776efb48a028f0,
     type: 2}
   m_PrefabInternal: {fileID: 941957340}
 --- !u!114 &1968540864
