@@ -12,6 +12,9 @@ public class NewScoreManager : MonoBehaviour {
     public Sprite questionMark;
     public UnityEngine.UI.Text scoreText;
 	public bool inGame = true;
+    public Image ddrContainer;
+    public Color green;
+    public Color red;
 
 	[Header("Highscore UI")]
 	public GameObject submitHighscoreButton;
@@ -193,6 +196,7 @@ public class NewScoreManager : MonoBehaviour {
         canMove = false;
         if (currentEmotion == target)
         {
+            StartCoroutine(FlashDDRContainer(green));
             points = 150;
             Score += points;
             SaveScore();
@@ -202,6 +206,18 @@ public class NewScoreManager : MonoBehaviour {
                 scoreText.text = Score.ToString();
             }
         }
+        else
+        {
+            StartCoroutine(FlashDDRContainer(red));
+        }
+    }
+
+    private IEnumerator FlashDDRContainer(Color color)
+    {
+        Color orgColor = ddrContainer.color;
+        ddrContainer.color = color;
+        yield return new WaitForSecondsRealtime(1f);
+        ddrContainer.color = orgColor;
     }
 
 	private void CompareEmotion()
