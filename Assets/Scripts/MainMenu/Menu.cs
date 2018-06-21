@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
 	void Start ()
 	{
 	    mode = 2;
-		sceneload = sceneloadMedium;
+		sceneload = sceneloadEasy;
 	    modeString = "Standard";
 	}
 	
