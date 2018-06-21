@@ -278,14 +278,16 @@ MonoBehaviour:
   prefab: {fileID: 1945785030726230, guid: 42c5fd249120398419812e12e2c4202e, type: 2}
   spriteEmotion: {fileID: 11400000, guid: ad02a878a82ad0a4bb008fd38290af64, type: 2}
   emotionsOfCorridors: 
-  numberOfCorridors: 2
+  numberOfCorridors: 5
   zOffset: 8
   corridors: []
   corridorNumber: 0
   scoreManager: {fileID: 333581048}
   bossRoom: {fileID: 1412693186482518, guid: 01ea81a8f514ccb4b8793ac7e1ae1afa, type: 2}
   DDR: {fileID: 1968540858}
-  pressSpace: {fileID: 55444795}
+  fadeOutObjects:
+  - {fileID: 55444795}
+  - {fileID: 649102832}
   inBossRoom: 0
 --- !u!4 &465946215
 Transform:
@@ -390,6 +392,8 @@ GameObject:
   - component: {fileID: 649102833}
   - component: {fileID: 649102835}
   - component: {fileID: 649102834}
+  - component: {fileID: 649102837}
+  - component: {fileID: 649102836}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -449,6 +453,30 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649102832}
+--- !u!225 &649102836
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649102832}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &649102837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649102832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f2c7d4247b18248a310d6559dd5e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2.5
+  visible: 1
 --- !u!224 &702249681 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224611433174044576, guid: 74ae90941c76c6748b7c204ec405a412,

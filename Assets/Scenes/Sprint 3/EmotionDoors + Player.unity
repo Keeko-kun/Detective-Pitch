@@ -262,14 +262,15 @@ MonoBehaviour:
   prefab: {fileID: 1969003478255140, guid: 70a084c46639279499629544c7e2d57f, type: 2}
   spriteEmotion: {fileID: 11400000, guid: ad02a878a82ad0a4bb008fd38290af64, type: 2}
   emotionsOfCorridors: 
-  numberOfCorridors: 5
+  numberOfCorridors: 6
   zOffset: 8
   corridors: []
   corridorNumber: 0
   scoreManager: {fileID: 333581048}
   bossRoom: {fileID: 1412693186482518, guid: 01ea81a8f514ccb4b8793ac7e1ae1afa, type: 2}
   DDR: {fileID: 1968540858}
-  pressSpace: {fileID: 55444795}
+  fadeOutObjects:
+  - {fileID: 55444795}
   inBossRoom: 0
 --- !u!4 &465946215
 Transform:
