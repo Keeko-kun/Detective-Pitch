@@ -6,7 +6,7 @@ You are talking about game mechanics of another game which are poorly designed.;
 You are talking about your future vision of your product.;joy
 You are telling about your last project which became a hit upon release!.;joy
 You are talking about the hurdles you should overcome when working with a new team.;disgust
-You talk about the troubles yoy had with your previous publisher.;disgust
+You talk about the troubles you had with your previous publisher.;disgust
 You talk about the frustations you had when you missed a deadline for your project;anger
 You talk about the great teamwork you had going during your last project.;joy
 You talk about the financial projections of your current project.;none
