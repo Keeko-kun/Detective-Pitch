@@ -262,7 +262,7 @@ MonoBehaviour:
   prefab: {fileID: 1969003478255140, guid: 70a084c46639279499629544c7e2d57f, type: 2}
   spriteEmotion: {fileID: 11400000, guid: ad02a878a82ad0a4bb008fd38290af64, type: 2}
   emotionsOfCorridors: 
-  numberOfCorridors: 6
+  numberOfCorridors: 5
   zOffset: 8
   corridors: []
   corridorNumber: 0
@@ -511,7 +511,7 @@ Prefab:
     - target: {fileID: 114298054121682264, guid: ae6850f0d0c1e684fa776efb48a028f0,
         type: 2}
       propertyPath: scrollSpeed
-      value: 2.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 114350166486032264, guid: ae6850f0d0c1e684fa776efb48a028f0,
         type: 2}
