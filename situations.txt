@@ -12,5 +12,5 @@ You talk about the great teamwork you had going during your last project.;joy
 You talk about the financial projections of your current project.;none
 You talk about the profit your previous project accumulated;joy
 You talk about the non-existing teamwork you had during your last project.;anger
-You talk talk about the fun you had working on your last game.;fun
+You talk about the fun you had working on your last game.;fun
 You talk about the anger you felt when your game concept was refused.;anger
